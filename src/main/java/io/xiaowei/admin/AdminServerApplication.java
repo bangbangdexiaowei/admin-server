@@ -11,7 +11,13 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class AdminServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminServerApplication.class, args);
+        try {
+            SpringApplication.run(AdminServerApplication.class, args);
+            log.info("Admin Server Start Success");
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            log.info("Admin Server Start Fail:{}", e.getMessage());
+        }
     }
 
 }
